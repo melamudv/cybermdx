@@ -1,0 +1,19 @@
+.content-wrapper{
+  padding:20px;
+  mat-card {
+    margin:10px;
+    ::ng-deep .mat-card-header-text {
+      margin: 0px; // for example to remove the margin
+    }
+  }
+  .truncate{
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .empty-block{
+    width:100%;
+  }
+}
+

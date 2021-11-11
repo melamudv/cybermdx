@@ -1,0 +1,25 @@
+<div class="filter-wrapper" fxLayout="column"  >
+  <div fxLayoutAlign="space-around center" fxLayout="column">
+    <h4 class="filter-title">Category</h4>
+    <mat-form-field appearance="fill">
+      <mat-label>Please select category</mat-label>
+      <mat-select  (selectionChange)="selectedCategory($event)">
+        <mat-option *ngFor="let api of removeDuplicate(apis?.entries)" [value]="api.Category">
+          {{api.Category}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div fxLayoutAlign="space-around center" fxLayout="column">
+    <h4 class="filter-title">Protocol</h4>
+    <mat-form-field appearance="fill">
+      <mat-label>Please select protocol</mat-label>
+      <mat-select  (selectionChange)="selectedProtocol($event)">
+        <mat-option *ngFor="let api of protocol" [value]="api.name">
+          {{api.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>

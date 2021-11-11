@@ -1,0 +1,26 @@
+<div class="content-wrapper">
+  <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+    <div fxFlex="30%"  *ngFor="let api of apis.entries | filter : filterByCategory">
+      <mat-card class="card" >
+        <mat-card-header class="header-card">
+          <mat-card-title>{{api.API}}</mat-card-title>
+          <mat-card-subtitle>
+            <a href="{{api.Link}}" target="_blank">View docs</a>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="truncate">
+            {{api.Description}}
+          </p>
+          <div fxLayout="row" fxLayoutAlign="space-between center" >
+            <div>{{api.Category}}</div>
+            <div>{{isHttp(api.HTTPS)}}</div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div *ngIf="apis.entries === null" class="empty-block">
+      <h1 fxLayout="row" fxLayoutAlign="center center">We not found API according your query</h1>
+    </div>
+  </div>
+</div>

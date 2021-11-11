@@ -1,0 +1,12 @@
+<div class="header-wrapper">
+  <h1 class="text-header">
+    Find Public APIs
+  </h1>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <mat-form-field class="search_input">
+      <mat-icon matSuffix>search</mat-icon>
+      <input type="text" matInput placeholder="Search API" [(ngModel)]="search" (keyup)="searchApi()">
+    </mat-form-field>
+  </div>
+</div>
+
