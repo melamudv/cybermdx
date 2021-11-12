@@ -1,9 +1,12 @@
 <div class="filter-wrapper" fxLayout="column"  >
-  <div fxLayoutAlign="space-around center" fxLayout="column">
+  <div fxLayoutAlign="space-around center" fxLayout="column" >
     <h4 class="filter-title">Category</h4>
     <mat-form-field appearance="fill">
       <mat-label>Please select category</mat-label>
       <mat-select  (selectionChange)="selectedCategory($event)">
+        <mat-option  value="ALL">
+          ALL
+        </mat-option>
         <mat-option *ngFor="let api of removeDuplicate(apis?.entries)" [value]="api.Category">
           {{api.Category}}
         </mat-option>

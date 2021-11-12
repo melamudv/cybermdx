@@ -1,6 +1,6 @@
 <div class="content-wrapper">
   <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-    <div fxFlex="30%"  *ngFor="let api of apis.entries | filter : filterByCategory">
+    <div fxFlex="30%"  *ngFor="let api of apis.entries | filter : filterByCategory | filterProtocol : filterByProtocol">
       <mat-card class="card" >
         <mat-card-header class="header-card">
           <mat-card-title>{{api.API}}</mat-card-title>

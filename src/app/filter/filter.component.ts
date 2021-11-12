@@ -11,9 +11,7 @@ export class FilterComponent implements OnInit {
   @Input() apis: IResponse;
   @Output() categorySelected = new EventEmitter<string>();
   @Output() protocolSelected = new EventEmitter<string>();
-  protocol = [{
-    name: 'HTTPS'
-  }, {name: 'HTTP'}];
+  protocol = [{name: 'ALL'}, { name: 'HTTPS'}, {name: 'HTTP'}];
   constructor() { }
 
   ngOnInit(): void {
