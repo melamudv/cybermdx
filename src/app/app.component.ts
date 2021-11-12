@@ -3,7 +3,7 @@ import {AppState} from './app.state';
 import {Store} from '@ngrx/store';
 import {GetAllApis, GetAllApisByTitle} from './store/apis.actions';
 import {Observable} from 'rxjs';
-import {IApi} from './models/api.model';
+import {IApi, IResponse} from './models/api.model';
 import {getAllApis, getApisLoad} from './store/apis.reducers';
 
 @Component({
@@ -13,7 +13,7 @@ import {getAllApis, getApisLoad} from './store/apis.reducers';
 })
 export class AppComponent implements OnInit {
   title = 'cybermdx';
-  apis$: Observable<IApi[]>;
+  apis$: Observable<IResponse>;
   load$: Observable<boolean>;
   filterByCategory: string;
   filterByProtocol: string;
@@ -24,13 +24,13 @@ export class AppComponent implements OnInit {
     this.apis$ = this.store.select(getAllApis);
     this.load$ = this.store.select(getApisLoad);
   }
-  searchAPI(data): void{
+  searchAPI(data: string): void{
     this.store.dispatch(new GetAllApisByTitle(data));
   }
-  filterCategory(data): void{
+  filterCategory(data: string): void{
     this.filterByCategory = data;
   }
-  filterProtocol(data): void{
+  filterProtocol(data: string): void{
     this.filterByProtocol = data;
   }
 

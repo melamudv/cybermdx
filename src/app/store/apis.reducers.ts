@@ -1,10 +1,10 @@
 import * as apiActions from './apis.actions';
 import {createFeatureSelector, createSelector} from '@ngrx/store';
 import {AppAction} from '../app.action';
-import {IApi} from '../models/api.model';
+import {IResponse} from '../models/api.model';
 
 export interface State {
-  data: IApi[];
+  data: IResponse;
   load: boolean;
   action: string;
   error?: Error;
