@@ -6,7 +6,7 @@ import {IApi, IResponse} from '../models/api.model';
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
-export class ContentComponent implements OnInit {
+export class ContentComponent {
   @Input() apis: IResponse;
   @Input() filterByCategory: string;
   @Input() filterByProtocol: string;
@@ -15,7 +15,4 @@ export class ContentComponent implements OnInit {
   isHttp(data: boolean): string{
     return data ? `HTTPS` : `HTTP`;
   }
-  ngOnInit(): void {
-  }
-
 }

@@ -11,7 +11,7 @@ import {getAllApis, getApisLoad} from './store/apis.reducers';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   title = 'cybermdx';
   apis$: Observable<IApi[]>;
   load$: Observable<boolean>;
@@ -33,7 +33,5 @@ export class AppComponent implements OnInit, OnDestroy {
   filterProtocol(data): void{
     this.filterByProtocol = data;
   }
-  ngOnDestroy(): void{
 
-  }
 }

@@ -6,13 +6,10 @@ import {FormControl, Validators} from '@angular/forms';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @Output() searchQ = new EventEmitter<string>();
   search: string;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
   searchApi(): void{
     this.searchQ.emit(this.search);
   }
