@@ -3,7 +3,7 @@ import {Actions, Effect, ofType} from '@ngrx/effects';
 import * as apisActions from './apis.actions';
 import {Observable} from 'rxjs';
 import {Action} from '@ngrx/store';
-import {catchError, map, switchMap} from 'rxjs/operators';
+import {catchError, debounceTime, map, switchMap} from 'rxjs/operators';
 import {DataService} from '../core/data.service';
 import {GetAllApisByTitle, GetAllApisByTitleError, GetAllApisByTitleSuccess, GetAllApisError, GetAllApisSuccess} from './apis.actions';
 
@@ -26,6 +26,7 @@ export class ApiEffects {
   getApisByTitle$: Observable<Action> = this.actions$.pipe(
     ofType(apisActions.GET_APIS_TITLE),
     map((action: GetAllApisByTitle ) => action.payload),
+    debounceTime(1000),
     switchMap((name) => this.dataService.getApiByTitle(name)),
     map(api => new GetAllApisByTitleSuccess( api )),
     catchError((err) => [new GetAllApisByTitleError(err)])
